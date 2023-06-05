@@ -7,6 +7,7 @@ import com.alura.gerenciador.accion.ListaEmpresas;
 import com.alura.gerenciador.accion.ModificarEmpresa;
 import com.alura.gerenciador.accion.MostrarEmpresa;
 import com.alura.gerenciador.accion.NuevaEmpresa;
+import com.alura.gerenciador.accion.NuevaEmpresaForm;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -41,6 +42,9 @@ public class EntradaServlet extends HttpServlet {
 			nombre = accion.ejecutar(request, response);
 		}else if(paramAccion.equals("NuevaEmpresa")) {
 			NuevaEmpresa accion = new NuevaEmpresa();
+			nombre = accion.ejecutar(request, response);
+		}else if(paramAccion.equals("NuevaEmpresaForm")) {
+			NuevaEmpresaForm accion = new NuevaEmpresaForm();
 			nombre = accion.ejecutar(request, response);
 		}
 
