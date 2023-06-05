@@ -16,8 +16,6 @@ public class EliminarEmpresa {
 		
 		System.out.println("Eliminando una empresa " + id);
 		
-		System.out.println(id);
-		
 		DB db = new DB();
 		db.eliminarEmpresa(id);
 		

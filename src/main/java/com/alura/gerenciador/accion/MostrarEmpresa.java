@@ -12,14 +12,12 @@ import jakarta.servlet.http.HttpServletResponse;
 
 public class MostrarEmpresa {
 	
-	public void ejecutar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public String ejecutar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String paramId = request.getParameter("id");
 		Integer id = Integer.valueOf(paramId);
 		
 		System.out.println("Mostrando una empresa " + id);
-		
-		System.out.println(id);
 		
 		DB db = new DB();
 		Empresa emp = db.buscarEmpresaPorId(id);
@@ -28,10 +26,6 @@ public class MostrarEmpresa {
 		
 		request.setAttribute("empresa", emp);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/formModificarEmpresa.jsp");
-		rd.forward(request, response);
-		
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		return "forward:/formModificarEmpresa.jsp";
 	}
-
 }
