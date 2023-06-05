@@ -7,7 +7,7 @@ import com.alura.gerenciador.modelo.DB;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-public class EliminarEmpresa {
+public class EliminarEmpresa implements Accion {
 
 	public String ejecutar(HttpServletRequest request, HttpServletResponse response) throws IOException {
 			
