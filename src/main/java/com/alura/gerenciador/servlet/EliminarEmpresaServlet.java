@@ -1,10 +1,13 @@
 package com.alura.gerenciador.servlet;
 
+import java.io.IOException;
+
+import com.alura.gerenciador.modelo.DB;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 
 public class EliminarEmpresaServlet extends HttpServlet {
