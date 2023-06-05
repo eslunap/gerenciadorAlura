@@ -1,11 +1,14 @@
 package com.alura.gerenciador.servlet;
 
+import java.io.IOException;
+
+import com.alura.gerenciador.accion.ListaEmpresas;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 @WebServlet("/entrada")
 public class EntradaServlet extends HttpServlet {
@@ -14,13 +17,14 @@ public class EntradaServlet extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String param = request.getParameter("accion");
+		String paramAccion = request.getParameter("accion");
 		
-		if (param.equals("ListaEmpresas")) {
-			System.out.println("Listando empresas");			
-		}else if(param.equals("MostrarEmpresa")) {
+		if (paramAccion.equals("ListaEmpresas")) {
+			ListaEmpresas accion = new ListaEmpresas();
+			accion.ejecutar(request, response);
+		}else if(paramAccion.equals("MostrarEmpresa")) {
 			System.out.println("Mostrando una empresa");			
-		}else if(param.equals("EliminarEmpresa")) {
+		}else if(paramAccion.equals("EliminarEmpresa")) {
 			System.out.println("Eliminando una empresa");			
 		}
 
