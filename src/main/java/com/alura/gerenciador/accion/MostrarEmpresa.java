@@ -1,0 +1,36 @@
+package com.alura.gerenciador.accion;
+
+import java.io.IOException;
+
+import com.alura.gerenciador.modelo.DB;
+import com.alura.gerenciador.modelo.Empresa;
+
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+public class MostrarEmpresa {
+	
+	public void ejecutar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		System.out.println("Mostrando una empresa");	
+		String paramId = request.getParameter("id");
+		Integer id = Integer.valueOf(paramId);
+		
+		System.out.println(id);
+		
+		DB db = new DB();
+		Empresa emp = db.buscarEmpresaPorId(id);
+		
+		System.out.println(emp.getNombre());
+		
+		request.setAttribute("empresa", emp);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("/formModificarEmpresa.jsp");
+		rd.forward(request, response);
+		
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+}
