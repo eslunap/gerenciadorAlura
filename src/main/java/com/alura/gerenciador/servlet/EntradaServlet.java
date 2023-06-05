@@ -8,6 +8,7 @@ import com.alura.gerenciador.accion.ModificarEmpresa;
 import com.alura.gerenciador.accion.MostrarEmpresa;
 import com.alura.gerenciador.accion.NuevaEmpresa;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -21,11 +22,14 @@ public class EntradaServlet extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
+		String url = request.getRequestURI();
+		String nombre = null;
 		String paramAccion = request.getParameter("accion");
 		
 		if (paramAccion.equals("ListaEmpresas")) {
 			ListaEmpresas accion = new ListaEmpresas();
-			accion.ejecutar(request, response);
+			nombre = accion.ejecutar(request, response);
 		}else if(paramAccion.equals("MostrarEmpresa")) {
 			MostrarEmpresa accion = new MostrarEmpresa();
 			accion.ejecutar(request, response);
@@ -40,6 +44,10 @@ public class EntradaServlet extends HttpServlet {
 			accion.ejecutar(request, response);
 		}
 
+
+		RequestDispatcher rd = request.getRequestDispatcher(nombre);
+		rd.forward(request, response);
+		
 	}
 
 }
