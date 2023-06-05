@@ -13,7 +13,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 public class ListaEmpresas {
 	
-	public void ejecutar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public String ejecutar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Listando empresas");	
 		
 		DB baseDeDatos = new DB();
@@ -21,7 +21,6 @@ public class ListaEmpresas {
 		
 		request.setAttribute("empresas", listaEmpresas);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/listaEmpresas.jsp");
-		rd.forward(request, response);
+		return "/listaEmpresas.jsp";
 	}
 }
