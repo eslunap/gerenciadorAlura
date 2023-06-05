@@ -48,7 +48,7 @@ public class EntradaServlet extends HttpServlet {
 		
 		
 		if (tipoYDireccion[0].equals("forward")) {
-			RequestDispatcher rd = request.getRequestDispatcher(tipoYDireccion[1]);
+			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/view/"+ tipoYDireccion[1]);
 			rd.forward(request, response);			
 		}else {
 			response.sendRedirect(tipoYDireccion[1]);
