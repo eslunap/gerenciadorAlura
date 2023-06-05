@@ -10,10 +10,11 @@ import jakarta.servlet.http.HttpServletResponse;
 public class EliminarEmpresa {
 
 	public void ejecutar(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		System.out.println("Eliminando una empresa");
-		
+			
 		String paramId = request.getParameter("id");
 		Integer id = Integer.valueOf(paramId);
+		
+		System.out.println("Eliminando una empresa " + id);
 		
 		System.out.println(id);
 		

@@ -14,9 +14,10 @@ public class MostrarEmpresa {
 	
 	public void ejecutar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		System.out.println("Mostrando una empresa");	
 		String paramId = request.getParameter("id");
 		Integer id = Integer.valueOf(paramId);
+		
+		System.out.println("Mostrando una empresa " + id);
 		
 		System.out.println(id);
 		
