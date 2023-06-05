@@ -21,7 +21,7 @@ public class EliminarEmpresa {
 		DB db = new DB();
 		db.eliminarEmpresa(id);
 		
-		response.sendRedirect("listaEmpresas");
+		response.sendRedirect("entrada?accion=ListaEmpresas");
 		
 	}
 
