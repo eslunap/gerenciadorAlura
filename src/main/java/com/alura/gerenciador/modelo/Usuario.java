@@ -1,7 +1,5 @@
 package com.alura.gerenciador.modelo;
 
-import org.apache.tomcat.jakartaee.commons.lang3.builder.ToStringBuilder;
-
 public class Usuario {
 	
 	private String login;

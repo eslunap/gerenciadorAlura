@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import org.apache.jasper.tagplugins.jstl.core.ForEach;
-
 public class DB {
 	
 	private static List<Empresa> listaEmpresas = new ArrayList<>();
