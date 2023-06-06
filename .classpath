@@ -14,5 +14,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/eslun/Documents/descargas/1868-java-servlet-1-7.0/1868-java-servlet-1-7.0/gerenciador/src/main/webapp/WEB-INF/lib/gson-2.9.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/eslun/Documents/descargas/1868-java-servlet-1-7.0/1868-java-servlet-1-7.0/gerenciador/src/main/webapp/WEB-INF/lib/xstream-1.4.19.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
