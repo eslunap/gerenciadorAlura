@@ -10,6 +10,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/entrada")
 public class EntradaServlet extends HttpServlet {
@@ -17,10 +18,19 @@ public class EntradaServlet extends HttpServlet {
 
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-				
-		String url = request.getRequestURI();
 		
 		String paramAccion = request.getParameter("accion");
+		HttpSession sesion = request.getSession();
+		
+		Boolean usuarioNoLogueado = (sesion.getAttribute("loginUsuario")==null);
+		Boolean accionProtegida = !(paramAccion.equals("Login") || paramAccion.equals("LoginForm"));
+		
+		if (usuarioNoLogueado && accionProtegida) {
+			response.sendRedirect("entrada?accion=LoginForm");
+			return;
+		}
+		
+				
 		String nombreDeClase = "com.alura.gerenciador.accion."+paramAccion;
 		String nombre;
 		
