@@ -10,6 +10,9 @@
 <title>Java Standard Taglib</title>
 </head>
 <body>
+
+	<c:import url="logout-parcial.jsp"></c:import>
+
 	Usuario logueado: ${loginUsuario.login}
 	
 	<br>
