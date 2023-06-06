@@ -1,5 +1,7 @@
 package com.alura.gerenciador.modelo;
 
+import org.apache.tomcat.jakartaee.commons.lang3.builder.ToStringBuilder;
+
 public class Usuario {
 	
 	private String login;
@@ -18,7 +20,14 @@ public class Usuario {
 		this.contrasena = contrasena;
 	}
 	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return this.login +" "+ this.contrasena;
+	}
+	
 	public boolean esIgual(String login, String contrasena) {
+		System.out.println("Usuario.java login "+login);
 		if (!this.login.equals(login)) {
 			return false;
 		}
