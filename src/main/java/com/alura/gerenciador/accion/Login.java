@@ -17,7 +17,7 @@ public class Login implements Accion {
 		
 		System.out.println("login " + paramLogin);
 		
-		return "redirect:entrada?accion=ListaEmpreas";
+		return "redirect:entrada?accion=ListaEmpresas";
 	}
 
 }
