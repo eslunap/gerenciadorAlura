@@ -2,6 +2,9 @@ package com.alura.gerenciador.accion;
 
 import java.io.IOException;
 
+import com.alura.gerenciador.modelo.DB;
+import com.alura.gerenciador.modelo.Usuario;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -17,7 +20,14 @@ public class Login implements Accion {
 		
 		System.out.println("login " + paramLogin);
 		
-		return "redirect:entrada?accion=ListaEmpresas";
+		DB db = new DB();
+		Usuario usuario = db.existeUsuario(paramLogin, paramContrasena);
+		
+		if (usuario != null) {
+			System.out.println("Usuario existe");
+			return "redirect:entrada?accion=ListaEmpresas";			
+		}else {
+			return "redirect:entrada?accion=LoginForm";
+		}
 	}
-
 }
