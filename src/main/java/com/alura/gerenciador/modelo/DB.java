@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.apache.jasper.tagplugins.jstl.core.ForEach;
+
 public class DB {
 	
 	private static List<Empresa> listaEmpresas = new ArrayList<>();
@@ -24,14 +26,20 @@ public class DB {
 		Usuario u1 = new Usuario();
 		u1.setLogin("eslunap");
 		u1.setContrasena("12345");
-		
-		Usuario u2 = new Usuario();
-		u1.setLogin("luan");
-		u1.setContrasena("123456");
-		
 		listaUsuarios.add(u1);
+		
+		
+		Usuario u2 = new Usuario(); u2.setLogin("luan"); u2.setContrasena("123456");
 		listaUsuarios.add(u2);
 		
+		Usuario u3 = new Usuario(); u3.setLogin("daniel"); u3.setContrasena("1234");
+		listaUsuarios.add(u3);
+		
+		System.out.println("Imprimiendo Lista de Usuarios");
+		for (Usuario usuario : listaUsuarios) {
+			System.out.println(usuario);			
+		}
+		System.out.println("Fin Lista de Usuarios");
 	}
 
 	public void agregarEmpresa(Empresa empresa) {
@@ -58,6 +66,17 @@ public class DB {
 		for (Empresa empresa : listaEmpresas) {
 			if(empresa.getId() == id) {
 				return empresa;
+			}
+		}
+		return null;
+	}
+
+	public Usuario existeUsuario(String paramLogin, String paramContrasena) {
+		System.out.println("DB.JAVA login "+ paramLogin);
+		for (Usuario usuario : listaUsuarios) {
+			System.out.println("For usuario DB "+usuario);
+			if (usuario.esIgual(paramLogin, paramContrasena)) {
+				return usuario;				
 			}
 		}
 		return null;
