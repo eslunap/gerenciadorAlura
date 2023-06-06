@@ -24,7 +24,7 @@ public class EmpresasService extends HttpServlet {
 		
 		String valor = request.getHeader("Accept");
 		
-		if (valor.endsWith("xml")) { //Response en formato XML
+		if (valor.contains("xml")) { //Response en formato XML
 			XStream xstream = new XStream();
 			xstream.alias("empresa", Empresa.class);
 			String xml = xstream.toXML(empresas);
@@ -32,7 +32,7 @@ public class EmpresasService extends HttpServlet {
 			response.setContentType("Application/xml");
 			response.getWriter().print(xml);
 			
-		} else if (valor.endsWith("json")) { //Response en formato json		
+		} else if (valor.contains("json")) { //Response en formato json		
 			  Gson gson = new Gson(); String json = gson.toJson(empresas);
 			  
 			  response.setContentType("Application/json");
